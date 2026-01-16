@@ -12,29 +12,29 @@
         <div class="display" id="display">0</div>
         
         <div class="keys">
-            <button class="action-btn" onclick="clearDisplay()">AC</button>
-            <button class="action-btn" onclick="deleteLast()">DE</button>
-            <button class="operator" onclick="appendToDisplay('%')">%</button>
-            <button class="operator" onclick="appendToDisplay('/')">/</button>
+            <button class="action-btn" data-key="Escape" onclick="clearDisplay()">AC</button>
+            <button class="action-btn" data-key="Backspace" onclick="deleteLast()">DE</button>
+            <button class="operator" data-key="%" onclick="appendToDisplay('%')">%</button>
+            <button class="operator" data-key="/" onclick="appendToDisplay('/')">/</button>
 
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button class="operator" onclick="appendToDisplay('*')">*</button>
+            <button data-key="7" onclick="appendToDisplay('7')">7</button>
+            <button data-key="8" onclick="appendToDisplay('8')">8</button>
+            <button data-key="9" onclick="appendToDisplay('9')">9</button>
+            <button class="operator" data-key="*" onclick="appendToDisplay('*')">*</button>
 
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button class="operator" onclick="appendToDisplay('-')">-</button>
+            <button data-key="4" onclick="appendToDisplay('4')">4</button>
+            <button data-key="5" onclick="appendToDisplay('5')">5</button>
+            <button data-key="6" onclick="appendToDisplay('6')">6</button>
+            <button class="operator" data-key="-" onclick="appendToDisplay('-')">-</button>
 
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            <button data-key="1" onclick="appendToDisplay('1')">1</button>
+            <button data-key="2" onclick="appendToDisplay('2')">2</button>
+            <button data-key="3" onclick="appendToDisplay('3')">3</button>
+            <button class="operator" data-key="+" onclick="appendToDisplay('+')">+</button>
 
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button class="equal-btn" onclick="calculateResult()">=</button>
+            <button data-key="0" onclick="appendToDisplay('0')">0</button>
+            <button data-key="." onclick="appendToDisplay('.')">.</button>
+            <button class="equal-btn" data-key="Enter" onclick="calculateResult()">=</button>
         </div>
     </div>
 

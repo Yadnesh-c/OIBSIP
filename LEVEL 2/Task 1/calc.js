@@ -1,5 +1,6 @@
 const display = document.getElementById('display');
 
+
 function appendToDisplay(input) {
     if (display.innerText === '0' && input !== '.') {
         display.innerText = input;
@@ -22,10 +23,47 @@ function deleteLast() {
 
 function calculateResult() {
     try {
-        // Warning: eval() is used here for simplicity in this demo.
-        // For a production app, use a safer math parser.
-        display.innerText = eval(display.innerText);
+        let expression = display.innerText.replace('x', '*'); 
+        display.innerText = eval(expression);
     } catch (error) {
         display.innerText = 'Error';
+    }
+}
+
+
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    
+    if ((key >= '0' && key <= '9') || key === '.') {
+        appendToDisplay(key);
+        visualPress(key);
+    } 
+    else if (['+', '-', '*', '/', '%'].includes(key)) {
+        appendToDisplay(key);
+        visualPress(key);
+    } 
+    else if (key === 'Enter' || key === '=') {
+        event.preventDefault();
+        calculateResult();
+        visualPress('Enter');
+    } 
+    else if (key === 'Backspace') {
+        deleteLast();
+        visualPress('Backspace');
+    } 
+    else if (key === 'Escape') {
+        clearDisplay();
+        visualPress('Escape');
+    }
+});
+
+function visualPress(key) {
+    const button = document.querySelector(`button[data-key="${key}"]`);
+    
+    if (button) {
+        button.classList.add('pressed');
+        setTimeout(() => {
+            button.classList.remove('pressed');
+        }, 100);
     }
 }
