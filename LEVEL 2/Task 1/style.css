@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+:root {
+    /* TRENDY COLOR PALETTE */
+    --bg-color: #e0e5ec;
+    --calc-body: #2d2d44; /* Dark Violet Body */
+    --screen-bg: #1a1a2e;
+    --screen-text: #00ff9d;
+    
+    /* Button Colors */
+    --btn-std: #f0f0f3;      /* Standard White/Grey keys */
+    --btn-std-shadow: #babecc;
+    
+    --btn-op: #7d5fff;       /* Purple Operators */
+    --btn-op-shadow: #5b43d6;
+    
+    --btn-action: #ff4757;   /* Red/Pink AC/DEL */
+    --btn-action-shadow: #d63030;
+    
+    --btn-eq: #00e0b0;       /* Mint Green Equals */
+    --btn-eq-shadow: #00b894;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#d1d8e0 2px, transparent 2px);
+    background-size: 20px 20px;
+}
+
+/* 3D Calculator Body */
+.calculator {
+    background-color: var(--calc-body);
+    width: 320px;
+    padding: 25px;
+    border-radius: 40px;
+    box-shadow: 
+        20px 20px 60px #bebebe, 
+        -20px -20px 60px #ffffff;
+    /* To make it look like the image, we add a thick bottom lip */
+    border-bottom: 10px solid rgba(0,0,0,0.2);
+}
+
+/* The Screen */
+.display {
+    width: 100%;
+    height: 80px;
+    background-color: var(--screen-bg);
+    border-radius: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 2.5rem;
+    color: var(--screen-text);
+    overflow: hidden;
+    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.5), 
+                inset -5px -5px 10px rgba(255,255,255,0.05);
+}
+
+/* Button Grid */
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* General Button Styling (The 3D Effect) */
+button {
+    border: none;
+    outline: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes them round/cylindrical */
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    position: relative;
+    
+    /* This creates the "tall" keycap look */
+    color: #444;
+    background-color: var(--btn-std);
+    box-shadow: 0px 6px 0px var(--btn-std-shadow), 
+                0px 6px 10px rgba(0,0,0,0.2);
+}
+
+/* Button Press Animation */
+button:active {
+    transform: translateY(4px); /* Moves down */
+    box-shadow: 0px 2px 0px var(--btn-std-shadow), /* Shadow shrinks */
+                0px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Color Variant: Operators */
+button.operator {
+    background-color: var(--btn-op);
+    color: white;
+    box-shadow: 0px 6px 0px var(--btn-op-shadow), 
+                0px 6px 10px rgba(0,0,0,0.2);
+}
+button.operator:active {
+    box-shadow: 0px 2px 0px var(--btn-op-shadow);
+}
+
+/* Color Variant: Actions (AC, DEL) */
+button.action-btn {
+    background-color: var(--btn-action);
+    color: white;
+    box-shadow: 0px 6px 0px var(--btn-action-shadow), 
+                0px 6px 10px rgba(0,0,0,0.2);
+}
+button.action-btn:active {
+    box-shadow: 0px 2px 0px var(--btn-action-shadow);
+}
+
+/* Color Variant: Equals */
+button.equal-btn {
+    background-color: var(--btn-eq);
+    color: #2d2d44;
+    width: 100%; /* Spans 2 columns if needed, but we used grid gap */
+    border-radius: 20px; /* Pill shape for equals */
+    grid-column: span 2;
+    width: auto;
+    box-shadow: 0px 6px 0px var(--btn-eq-shadow), 
+                0px 6px 10px rgba(0,0,0,0.2);
+}
+button.equal-btn:active {
+    box-shadow: 0px 2px 0px var(--btn-eq-shadow);
+}
