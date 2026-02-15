@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Authentication System{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-card">
+        <div class="dashboard-header">
+            <h1>Welcome to Your Dashboard!</h1>
+            <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="welcome-section">
+                <h2>Hello, {{ username }}! 👋</h2>
+                <p>You have successfully logged in to the secured area.</p>
+            </div>
+            
+            <div class="info-section">
+                <h3>Account Information</h3>
+                <div class="info-item">
+                    <strong>Username:</strong> {{ username }}
+                </div>
+                <div class="info-item">
+                    <strong>Email:</strong> {{ session.email }}
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <h3>Features</h3>
+                <ul>
+                    <li>✅ Secure user authentication</li>
+                    <li>✅ Password hashing for security</li>
+                    <li>✅ Session management</li>
+                    <li>✅ Protected routes</li>
+                    <li>✅ Database storage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

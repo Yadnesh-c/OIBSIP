@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTask Dashboard</title>
+    <link rel="icon" type="image/png" href="3248209.png">
+    <link rel="stylesheet" href="Todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+    
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+        </div>
+        
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search tasks..." id="searchInput">
+        </div>
+
+        <div class="menu-section">
+            <h3>TASKS</h3>
+            <ul id="mainFilters">
+                <li class="nav-item active" data-filter="today"><i class="fas fa-list-check"></i> Today <span class="badge" id="count-today">0</span></li>
+                <li class="nav-item" data-filter="upcoming"><i class="fas fa-angles-right"></i> Upcoming <span class="badge" id="count-upcoming">0</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h3>LISTS</h3>
+            <ul id="listFilters">
+                <li class="nav-item" data-filter="Personal"><span class="color-dot red"></span> Personal <span class="badge" id="count-personal">0</span></li>
+                <li class="nav-item" data-filter="Work"><span class="color-dot blue"></span> Work <span class="badge" id="count-work">0</span></li>
+                <li class="nav-item" data-filter="List 1"><span class="color-dot yellow"></span> List 1 <span class="badge" id="count-list1">0</span></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div class="header-title-wrapper">
+                <i class="fas fa-bars" id="menuToggle"></i>
+                <h1 id="pageTitle">Today <span class="count-box" id="totalCount">0</span></h1>
+            </div>
+        </header>
+
+        <div class="add-task-container">
+            <input type="text" id="newTaskInput" placeholder="+ Add New Task" autocomplete="off">
+        </div>
+
+        <div class="task-list" id="taskListContainer">
+            </div>
+    </main>
+
+    <aside class="detail-panel" id="detailPanel" style="display: none;">
+        <div class="panel-header">
+            <h3>Task Details</h3>
+            <button class="close-btn" onclick="closePanel()">Close</button>
+        </div>
+
+        <input type="hidden" id="editId">
+
+        <input type="text" class="edit-title" id="editTitle">
+        <textarea class="edit-desc" id="editDesc" placeholder="Description"></textarea>
+
+        <div class="properties">
+            <div class="prop-row">
+                <label>List</label>
+                <select id="editList">
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="List 1">List 1</option>
+                </select>
+            </div>
+            <div class="prop-row">
+                <label>Due date</label>
+                <input type="date" id="editDate">
+            </div>
+            <div class="prop-row">
+                <label>Subtasks</label>
+                <div class="tag-group">
+                    <input type="text" id="newSubtaskInput" placeholder="Add subtask..." style="width: 140px; padding: 5px;">
+                    <button class="add-tag" onclick="addSubtask()">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="subtasks-section">
+            <h3>Subtasks List:</h3>
+            <div class="subtask-list" id="subtaskList">
+                </div>
+        </div>
+
+        <div class="panel-footer">
+            <button class="btn-delete" onclick="deleteCurrentTask()">Delete</button>
+            <button class="btn-save" onclick="saveTaskDetails()">Save Changes</button>
+        </div>
+    </aside>
+
+</div>
+<script src="Todo.js"></script>
+</body>
+</html>
